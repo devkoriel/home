@@ -21,14 +21,17 @@ function escapeHtml(str) {
 const { basics, work, education, skills, languages, publications, awards } = resume;
 
 const contactParts = [
-  basics.location ? `${basics.location.city}, ${basics.location.countryCode}` : "",
   basics.email,
   basics.phone,
-  basics.url,
+  basics.location ? `${basics.location.city}, ${basics.location.countryCode}` : "",
+  basics.url ? basics.url.replace(/^https?:\/\//, "") : "",
 ].filter(Boolean);
 
 const profileLinks = (basics.profiles || [])
-  .map((p) => `<a href="${escapeHtml(p.url)}">${escapeHtml(p.network)}</a>`)
+  .map((p) => {
+    const display = p.url.replace(/^https?:\/\/(www\.)?/, "");
+    return `<a href="${escapeHtml(p.url)}">${escapeHtml(display)}</a>`;
+  })
   .join("&nbsp; | &nbsp;");
 
 const skillsLine = skills
@@ -67,9 +70,9 @@ const educationHtml = education
 
 const langLine = (languages || []).map((l) => `${l.language} (${l.fluency})`).join(", ");
 
-const extras = [];
-if (publications) publications.forEach((p) => extras.push(escapeHtml(p.name)));
-if (awards) awards.forEach((a) => extras.push(escapeHtml(a.title)));
+const additionalItems = [];
+if (publications) publications.forEach((p) => additionalItems.push(`<li><strong>Publication:</strong> ${escapeHtml(p.name)}</li>`));
+if (awards) awards.forEach((a) => additionalItems.push(`<li><strong>Award:</strong> ${escapeHtml(a.title)}</li>`));
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -119,7 +122,7 @@ const html = `<!DOCTYPE html>
     font-size: 9pt;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5pt;
+    letter-spacing: 0.8pt;
     color: #222;
     padding-bottom: 4pt;
     border-bottom: 0.75pt solid #ddd;
@@ -218,7 +221,7 @@ const html = `<!DOCTYPE html>
 
   ${langLine ? `<div class="section"><h2>Languages</h2><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
 
-  ${extras.length ? `<div class="section"><h2>Publications &amp; Awards</h2><div class="extras">${extras.join(" &bull; ")}</div></div>` : ""}
+  ${additionalItems.length ? `<div class="section"><h2>Additional</h2><ul class="extras">${additionalItems.join("")}</ul></div>` : ""}
 </body>
 </html>`;
 
