@@ -5,7 +5,7 @@ on:
     paths:
       - 'resume.json'
     branches:
-      - master
+      - main
 
 permissions:
   contents: write
