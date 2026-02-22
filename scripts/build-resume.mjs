@@ -29,11 +29,11 @@ const contactParts = [
 
 const profileLinks = (basics.profiles || [])
   .map((p) => `<a href="${escapeHtml(p.url)}">${escapeHtml(p.network)}</a>`)
-  .join("  |  ");
+  .join("&nbsp; | &nbsp;");
 
 const skillsLine = skills
   .map((s) => `<strong>${escapeHtml(s.name)}:</strong> ${s.keywords.map(escapeHtml).join(", ")}`)
-  .join("&nbsp;&nbsp;&bull;&nbsp;&nbsp;");
+  .join(" &bull; ");
 
 const workHtml = work
   .map((w) => {
@@ -44,12 +44,10 @@ const workHtml = work
     return `
       <div class="entry">
         <div class="entry-header">
-          <div class="entry-title">
-            <strong>${escapeHtml(w.position)}</strong>${w.name ? ` · ${escapeHtml(w.name)}` : ""}
-          </div>
-          <div class="entry-date">${dates}</div>
+          <span class="entry-title"><strong>${escapeHtml(w.position)}</strong> &middot; ${escapeHtml(w.name || "")}</span>
+          <span class="entry-date">${dates}</span>
         </div>
-        ${w.summary ? `<div class="entry-summary">${escapeHtml(w.summary)}</div>` : ""}
+        ${w.summary ? `<div class="entry-sub">${escapeHtml(w.summary)}</div>` : ""}
         ${highlights ? `<ul>${highlights}</ul>` : ""}
       </div>`;
   })
@@ -60,150 +58,143 @@ const educationHtml = education
     const dates = `${formatDate(e.startDate)} – ${formatDate(e.endDate)}`;
     const degree = [e.studyType, e.area].filter(Boolean).join(" in ");
     return `
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title"><strong>${escapeHtml(e.institution)}</strong>${degree ? ` · ${escapeHtml(degree)}` : ""}</div>
-          <div class="entry-date">${dates}</div>
-        </div>
+      <div class="entry-row">
+        <span><strong>${escapeHtml(e.institution)}</strong>${degree ? ` &middot; ${escapeHtml(degree)}` : ""}</span>
+        <span class="entry-date">${dates}</span>
       </div>`;
   })
   .join("");
 
 const langLine = (languages || []).map((l) => `${l.language} (${l.fluency})`).join(", ");
 
-const pubsHtml = (publications || [])
-  .map((p) => `<li>${escapeHtml(p.name)}</li>`)
-  .join("");
-
-const awardsHtml = (awards || [])
-  .map((a) => `<li>${escapeHtml(a.title)}</li>`)
-  .join("");
+const extras = [];
+if (publications) publications.forEach((p) => extras.push(escapeHtml(p.name)));
+if (awards) awards.forEach((a) => extras.push(escapeHtml(a.title)));
 
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <style>
-  @page {
-    size: A4;
-    margin: 0;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   html {
-    font-size: 9.5pt;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
   body {
-    font-family: "Charter", "Georgia", "Cambria", "Times New Roman", serif;
-    color: #1a1a1a;
-    line-height: 1.4;
-    padding: 36pt 40pt;
+    font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+    font-size: 9.5pt;
+    color: #222;
+    line-height: 1.45;
   }
-  a {
-    color: #1a1a1a;
-    text-decoration: none;
-  }
+  a { color: #222; text-decoration: none; }
+
+  /* Header */
   h1 {
-    font-family: "Helvetica Neue", "Arial", "Segoe UI", sans-serif;
-    font-size: 20pt;
+    font-size: 22pt;
     font-weight: 700;
-    letter-spacing: -0.3pt;
-    margin: 0;
+    letter-spacing: -0.5pt;
+    margin-bottom: 3pt;
   }
-  .subtitle {
-    font-family: "Helvetica Neue", "Arial", "Segoe UI", sans-serif;
-    font-size: 10.5pt;
-    color: #444;
-    margin-top: 2pt;
+  .label {
+    font-size: 11pt;
+    color: #555;
+    margin-bottom: 5pt;
   }
   .contact {
     font-size: 8.5pt;
-    color: #555;
-    margin-top: 6pt;
-    line-height: 1.5;
+    color: #666;
+    line-height: 1.6;
   }
-  .contact a { color: #555; }
+  .contact a { color: #666; }
+
+  /* Sections */
   .divider {
     border: none;
-    border-top: 1.5pt solid #1a1a1a;
-    margin: 10pt 0 8pt;
+    border-top: 1.5pt solid #222;
+    margin: 12pt 0 10pt;
   }
-  .section-title {
-    font-family: "Helvetica Neue", "Arial", "Segoe UI", sans-serif;
+  .section { margin-bottom: 12pt; }
+  h2 {
     font-size: 9pt;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2pt;
-    color: #1a1a1a;
-    margin-bottom: 6pt;
-    padding-bottom: 3pt;
-    border-bottom: 0.5pt solid #ccc;
-  }
-  .section {
-    margin-bottom: 10pt;
+    letter-spacing: 1.5pt;
+    color: #222;
+    padding-bottom: 4pt;
+    border-bottom: 0.75pt solid #ddd;
+    margin-bottom: 8pt;
+    break-after: avoid;
+    page-break-after: avoid;
   }
   .summary {
-    font-size: 9.5pt;
-    line-height: 1.45;
-    margin-bottom: 10pt;
+    line-height: 1.5;
+    margin-bottom: 12pt;
   }
-  .skills-block {
+  .skills {
     font-size: 8.5pt;
-    line-height: 1.6;
+    line-height: 1.7;
   }
+
+  /* Work entries */
   .entry {
-    margin-bottom: 7pt;
+    margin-bottom: 10pt;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
   .entry-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 1pt;
   }
-  .entry-title {
-    font-size: 9.5pt;
-  }
+  .entry-title { font-size: 9.5pt; }
   .entry-date {
     font-size: 8.5pt;
     color: #666;
     white-space: nowrap;
     flex-shrink: 0;
-    margin-left: 8pt;
+    margin-left: 12pt;
   }
-  .entry-summary {
+  .entry-sub {
     font-size: 8.5pt;
     font-style: italic;
-    color: #555;
-    margin-top: 1pt;
+    color: #666;
+    margin-bottom: 2pt;
   }
   ul {
-    margin: 2pt 0 0 14pt;
+    margin: 3pt 0 0 16pt;
     padding: 0;
   }
   li {
     font-size: 8.5pt;
-    line-height: 1.4;
-    margin-bottom: 1pt;
+    line-height: 1.45;
+    margin-bottom: 1.5pt;
+    color: #333;
   }
-  li::marker {
-    color: #999;
+
+  /* Education rows */
+  .entry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4pt;
+    font-size: 9.5pt;
   }
+
   .extras {
     font-size: 8.5pt;
     line-height: 1.5;
+    color: #333;
   }
 </style>
 </head>
 <body>
   <h1>${escapeHtml(basics.name)}</h1>
-  <div class="subtitle">${escapeHtml(basics.label)}</div>
+  <div class="label">${escapeHtml(basics.label)}</div>
   <div class="contact">
-    ${contactParts.join("&nbsp;&nbsp;·&nbsp;&nbsp;")}
-    ${profileLinks ? `<br>${profileLinks}` : ""}
+    ${contactParts.join(" &middot; ")}
+    <br>${profileLinks}
   </div>
 
   <hr class="divider">
@@ -211,23 +202,23 @@ const html = `<!DOCTYPE html>
   <div class="summary">${escapeHtml(basics.summary)}</div>
 
   <div class="section">
-    <div class="section-title">Technical Skills</div>
-    <div class="skills-block">${skillsLine}</div>
+    <h2>Technical Skills</h2>
+    <div class="skills">${skillsLine}</div>
   </div>
 
   <div class="section">
-    <div class="section-title">Experience</div>
+    <h2>Experience</h2>
     ${workHtml}
   </div>
 
   <div class="section">
-    <div class="section-title">Education</div>
+    <h2>Education</h2>
     ${educationHtml}
   </div>
 
-  ${langLine ? `<div class="section"><div class="section-title">Languages</div><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
+  ${langLine ? `<div class="section"><h2>Languages</h2><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
 
-  ${pubsHtml || awardsHtml ? `<div class="section"><div class="section-title">Other</div><ul class="extras">${pubsHtml}${awardsHtml}</ul></div>` : ""}
+  ${extras.length ? `<div class="section"><h2>Publications &amp; Awards</h2><div class="extras">${extras.join(" &bull; ")}</div></div>` : ""}
 </body>
 </html>`;
 
@@ -237,6 +228,7 @@ await page.setContent(html, { waitUntil: "networkidle0" });
 await page.pdf({
   path: resolve(root, "resume", "resume.pdf"),
   format: "A4",
+  margin: { top: "20mm", right: "20mm", bottom: "20mm", left: "20mm" },
   printBackground: true,
 });
 await browser.close();
