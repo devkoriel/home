@@ -34,9 +34,9 @@ const profileLinks = (basics.profiles || [])
   })
   .join("&nbsp; | &nbsp;");
 
-const skillsLine = skills
-  .map((s) => `<strong>${escapeHtml(s.name)}:</strong> ${s.keywords.map(escapeHtml).join(", ")}`)
-  .join(" &bull; ");
+const skillsHtml = skills
+  .map((s) => `<div class="skill-row"><strong>${escapeHtml(s.name)}:</strong> ${s.keywords.map(escapeHtml).join(", ")}</div>`)
+  .join("");
 
 const workHtml = work
   .map((w) => {
@@ -71,11 +71,21 @@ const educationHtml = education
 const langLine = (languages || []).map((l) => `${l.language} (${l.fluency})`).join(", ");
 
 const pubsList = (publications || [])
-  .map((p) => `<li>${escapeHtml(p.name)}</li>`)
+  .map((p) => {
+    const parts = [escapeHtml(p.name)];
+    if (p.publisher) parts.push(escapeHtml(p.publisher));
+    if (p.releaseDate) parts.push(formatDate(p.releaseDate).split(" ")[1]);
+    return `<li>${parts.join(" | ")}</li>`;
+  })
   .join("");
 
 const awardsList = (awards || [])
-  .map((a) => `<li>${escapeHtml(a.title)}</li>`)
+  .map((a) => {
+    const parts = [escapeHtml(a.title)];
+    if (a.awarder) parts.push(escapeHtml(a.awarder));
+    if (a.date) parts.push(formatDate(a.date).split(" ")[1]);
+    return `<li>${parts.join(" | ")}</li>`;
+  })
   .join("");
 
 const html = `<!DOCTYPE html>
@@ -140,7 +150,10 @@ const html = `<!DOCTYPE html>
   }
   .skills {
     font-size: 8.5pt;
-    line-height: 1.7;
+    line-height: 1.5;
+  }
+  .skill-row {
+    margin-bottom: 2pt;
   }
 
   /* Work entries */
@@ -210,11 +223,11 @@ const html = `<!DOCTYPE html>
 
   <div class="section">
     <h2>Technical Skills</h2>
-    <div class="skills">${skillsLine}</div>
+    <div class="skills">${skillsHtml}</div>
   </div>
 
   <div class="section">
-    <h2>Experience</h2>
+    <h2>Professional Experience</h2>
     ${workHtml}
   </div>
 
@@ -223,11 +236,11 @@ const html = `<!DOCTYPE html>
     ${educationHtml}
   </div>
 
-  ${langLine ? `<div class="section"><h2>Languages</h2><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
-
   ${pubsList ? `<div class="section"><h2>Publications</h2><ul class="extras">${pubsList}</ul></div>` : ""}
 
   ${awardsList ? `<div class="section"><h2>Awards</h2><ul class="extras">${awardsList}</ul></div>` : ""}
+
+  ${langLine ? `<div class="section"><h2>Languages</h2><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
 </body>
 </html>`;
 

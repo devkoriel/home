@@ -52,13 +52,13 @@
       "endDate": "2025-10-01",
       "summary": "South Korea's largest cryptocurrency exchange.",
       "highlights": [
-        "Kubernetes on AWS (EKS and kOps) maintenance and deployment",
-        "End-to-end network security using Istio service mesh",
-        "Upbit OpenAPI Gateway (Kong) maintenance and plugin development with Lua",
-        "AWS cloud network architecture and implementation with Terraform",
-        "SLA/SLO/SLI dashboard development with Datadog, Grafana, and Terraform",
-        "Monitoring and observability enhancement powered by Linux eBPF",
-        "Internal DevOps and SRE tooling development with Go and Python"
+        "Managed Kubernetes clusters on AWS (EKS and kOps) serving South Korea's largest crypto exchange",
+        "Enforced end-to-end network security using Istio service mesh across all production services",
+        "Maintained and extended Upbit OpenAPI Gateway (Kong) with custom Lua plugins",
+        "Designed AWS cloud network architecture and implemented with Terraform",
+        "Built SLA/SLO/SLI dashboards with Datadog, Grafana, and Terraform for platform-wide reliability tracking",
+        "Enhanced monitoring and observability using Linux eBPF for deep network-level insights",
+        "Developed internal DevOps and SRE tooling in Go and Python"
       ]
     },
     {
@@ -69,38 +69,27 @@
       "endDate": "2023-10-01",
       "summary": "South Korea's leading local marketplace platform.",
       "highlights": [
-        "SRE Cluster team — securing stability of network and Kubernetes clusters",
-        "HAProxy maintenance and bot/abuser detection",
-        "Log and metrics delivery pipeline with Grafana dashboards",
-        "Istio service mesh maintenance and Kubernetes network optimization",
-        "FinOps and infrastructure cost automation"
+        "Stabilized network and Kubernetes clusters as part of the SRE Cluster team",
+        "Operated HAProxy fleet with bot and abuser detection at the edge",
+        "Built log and metrics delivery pipelines with Grafana dashboards",
+        "Maintained Istio service mesh and optimized Kubernetes network performance",
+        "Automated FinOps workflows for infrastructure cost visibility and reduction"
       ]
     },
     {
       "name": "PUBG Corporation",
-      "position": "Lead of Network Security Part",
-      "url": "https://www.pubg.com",
-      "startDate": "2021-12-01",
-      "endDate": "2022-06-01",
-      "summary": "PUBG: NEW STATE — defending game infrastructure from attacks.",
-      "highlights": [
-        "Led network security for PUBG: NEW STATE infrastructure defense"
-      ]
-    },
-    {
-      "name": "PUBG Corporation",
-      "position": "DevSecOps Engineer",
+      "position": "Lead of Network Security Part → DevSecOps Engineer",
       "url": "https://www.pubg.com",
       "startDate": "2020-10-01",
-      "endDate": "2021-12-01",
-      "summary": "PUBG: NEW STATE — infrastructure security and operations.",
+      "endDate": "2022-06-01",
+      "summary": "PUBG: NEW STATE — infrastructure security and operations for a global mobile game.",
       "highlights": [
-        "eBPF programming (XDP ingress + TC egress) to protect infrastructure from DDoS attacks",
-        "Load testing and tuning network infrastructure for 10,000,000+ concurrent users",
-        "Kubernetes HPA with Prometheus Adapter for custom-metrics-based autoscaling",
-        "Setup microservices environment using AWS EKS, Kubernetes, Terraform, and Helm",
-        "Istio service mesh and logging with Prometheus and Fluent Bit",
-        "GitOps CI/CD pipeline with Jenkins (CI) and ArgoCD (CD)"
+        "Promoted to Lead of Network Security Part, directing infrastructure defense strategy for PUBG: NEW STATE",
+        "Developed eBPF programs (XDP ingress + TC egress) to protect infrastructure from DDoS attacks",
+        "Load-tested and tuned network infrastructure for 10,000,000+ concurrent users",
+        "Configured Kubernetes HPA with Prometheus Adapter for custom-metrics-based autoscaling",
+        "Architected microservices environment using AWS EKS, Kubernetes, Terraform, and Helm",
+        "Implemented GitOps CI/CD pipeline with Jenkins (CI) and ArgoCD (CD)"
       ]
     },
     {
@@ -111,12 +100,12 @@
       "endDate": "2020-10-01",
       "summary": "Drone mapping and digital twin platform.",
       "highlights": [
-        "Dockerization of Ruby on Rails, Node.js, Python apps and deployment to AWS ECS (Fargate/EC2)",
-        "Zero-downtime deployment strategy (Blue-green and Rolling update)",
-        "Security: AWS WAF, ELB firewall policies, CIS Benchmark",
-        "ELK stack and Elastic APM for observability",
-        "AWS VPC architecture with strict public/private subnet separation",
-        "MSK (Managed Kafka) for microservice communication"
+        "Containerized Ruby on Rails, Node.js, and Python applications and deployed to AWS ECS (Fargate/EC2)",
+        "Implemented zero-downtime deployment strategies (blue-green and rolling update)",
+        "Hardened security posture with AWS WAF, ELB firewall policies, and CIS Benchmark compliance",
+        "Deployed ELK stack and Elastic APM for full-stack observability",
+        "Designed AWS VPC architecture with strict public/private subnet separation",
+        "Provisioned MSK (Managed Kafka) for microservice event-driven communication"
       ]
     },
     {
@@ -126,11 +115,11 @@
       "endDate": "2019-11-01",
       "summary": "Educational robotics company (MODI modular robot).",
       "highlights": [
-        "Infrastructure monitoring with Docker and NetData",
-        "Software architecture design and code review management via GitLab MR + Jenkins",
-        "CI/CD pipeline for Linux, macOS, Windows, Android, iOS, and Python apps using Jenkins",
-        "Application download server using AWS Lambda and API Gateway",
-        "CMake migration of C++ projects — 10x build time and binary size reduction"
+        "Established infrastructure monitoring with Docker and NetData",
+        "Designed software architecture and managed code reviews via GitLab MR + Jenkins",
+        "Built CI/CD pipelines for Linux, macOS, Windows, Android, iOS, and Python apps using Jenkins",
+        "Created application download server using AWS Lambda and API Gateway",
+        "Migrated C++ build system to CMake, achieving 10x improvement in build time and binary size"
       ]
     },
     {
@@ -213,12 +202,16 @@
   ],
   "awards": [
     {
-      "title": "Korea Robot Aircraft Competition"
+      "title": "Korea Robot Aircraft Competition",
+      "awarder": "Ministry of Land, Infrastructure and Transport",
+      "date": "2012-01-01"
     }
   ],
   "publications": [
     {
-      "name": "Microsoft Software Magazine Issue 394 — Cloud or Dare",
+      "name": "Cloud or Dare — Microsoftware Issue 394",
+      "publisher": "Microsoftware",
+      "releaseDate": "2019-01-01",
       "summary": "마이크로소프트웨어 394호 클라우드 혹은 도전(CLOUD or DARE)"
     }
   ],
