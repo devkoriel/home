@@ -19,8 +19,6 @@
   },
   "homepage": "https://github.com/devkoriel/home#readme",
   "dependencies": {
-    "jsonresume-theme-elegant": "^1.16.1",
-    "puppeteer": "^24.37.5",
-    "resumed": "^6.1.0"
+    "puppeteer": "^24.37.5"
   }
 }
