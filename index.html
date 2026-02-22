@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,8 +14,8 @@
   <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
   <meta name="color-scheme" content="dark light">
 
-  <meta property="og:locale" content="ko_KR">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jinsoo Heo - DevOps Engineer">
   <meta property="og:description" content="DevOps Engineer based in Seoul, Korea. 10+ years in software engineering.">
@@ -225,7 +225,7 @@
             fetchpriority="high"
           >
           <div class="info">
-            <div class="name">허진수 <span class="dim">(Jinsoo Heo)</span></div>
+            <div class="name">Jinsoo Heo <span class="dim">(허진수)</span></div>
             <div class="role">DevOps Engineer &middot; Seoul, Korea</div>
           </div>
         </div>
@@ -314,7 +314,7 @@
 
       var cl=document.getElementById("clock");
       function tick(){
-        cl.textContent=new Date().toLocaleTimeString("ko-KR",{hour12:false,timeZone:"Asia/Seoul"});
+        cl.textContent=new Date().toLocaleTimeString("en-US",{hour12:false,timeZone:"Asia/Seoul"});
       }
       tick();
       setInterval(tick,1000);
