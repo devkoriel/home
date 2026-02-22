@@ -70,9 +70,13 @@ const educationHtml = education
 
 const langLine = (languages || []).map((l) => `${l.language} (${l.fluency})`).join(", ");
 
-const additionalItems = [];
-if (publications) publications.forEach((p) => additionalItems.push(`<li><strong>Publication:</strong> ${escapeHtml(p.name)}</li>`));
-if (awards) awards.forEach((a) => additionalItems.push(`<li><strong>Award:</strong> ${escapeHtml(a.title)}</li>`));
+const pubsList = (publications || [])
+  .map((p) => `<li>${escapeHtml(p.name)}</li>`)
+  .join("");
+
+const awardsList = (awards || [])
+  .map((a) => `<li>${escapeHtml(a.title)}</li>`)
+  .join("");
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -221,7 +225,9 @@ const html = `<!DOCTYPE html>
 
   ${langLine ? `<div class="section"><h2>Languages</h2><div class="extras">${escapeHtml(langLine)}</div></div>` : ""}
 
-  ${additionalItems.length ? `<div class="section"><h2>Additional</h2><ul class="extras">${additionalItems.join("")}</ul></div>` : ""}
+  ${pubsList ? `<div class="section"><h2>Publications</h2><ul class="extras">${pubsList}</ul></div>` : ""}
+
+  ${awardsList ? `<div class="section"><h2>Awards</h2><ul class="extras">${awardsList}</ul></div>` : ""}
 </body>
 </html>`;
 
