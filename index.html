@@ -1,88 +1,405 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Build software better, together.">
-        <title>Jinsoo Heo - Profile</title>
-        <meta property="og:locale" content="ko_KR"/>
-        <meta property="og:locale:alternate" content="en_US"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Jinsoo Heo - Profile"/>
-        <meta property="og:description" content="Build software better, together."/>
-        <meta property="og:url" content="https://koriel.kr/"/>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jinsoo Heo - DevOps Engineer</title>
+  <meta name="description" content="Jinsoo Heo - DevOps Engineer based in Seoul, Korea. 10+ years in software engineering, building infrastructure for DeFi protocols.">
+  <meta name="author" content="Jinsoo Heo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://koriel.kr/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
 
-        <link rel="stylesheet" type="text/css" href="./assets/semantic-ui/semantic.min.css">
-        <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
-    </head>
-    <body>
-        <div class="ui stackable four column centered middle aligned grid container">
-            <div class="profile column">
-                <img class="ui small circular right floated image" src="https://www.gravatar.com/avatar/f3335fb2fa48ffc42ff9c55fa77e4cf6?s=512">
-            </div>
-            <div class="content column">
-                    <h1 class="ui dividing header">
-                        허진수
-                        <div class="sub header">Jinsoo Heo</div>
-                    </h1>
-                    <p>Build software better, together.</p>
-            </div>
-            <div class="four column centered row">
-                <div class="column"></div>
-                <div class="column">
-                    <div class="ui list">
-                        <div class="item">
-                            <i class="user icon"></i>
-                            <div class="content">
-                                Site Reliability Engineer
-                            </div>
-                        </div>
-                        <div class="item">
-                            <i class="marker icon"></i>
-                            <div class="content">
-                                Seoul, Korea
-                            </div>
-                        </div>
-                        <div class="item">
-                            <i class="black tie icon"></i>
-                            <div class="content">
-                                <a href="https://koriel.kr/resume/resume.pdf">Résumé</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <i class="github icon"></i>
-                            <div class="content">
-                                <a href="https://github.com/devkoriel">github.com/devkoriel</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <i class="linkedin icon"></i>
-                            <div class="content">
-                                <a href="https://www.linkedin.com/in/devkoriel">linkedin.com/in/devkoriel</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                                <i class="facebook icon"></i>
-                                <div class="content">
-                                    <a href="https://www.facebook.com/devkoriel">facebook.com/devkoriel</a>
-                                </div>
-                            </div>
-                        <div class="item">
-                            <i class="mail icon"></i>
-                            <div class="content">
-                                <a href="mailto:dev@koriel.kr">dev@koriel.kr</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <i class="linkify icon"></i>
-                            <div class="content">
-                                <a href="https://blog.koriel.kr">blog.koriel.kr</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jinsoo Heo - DevOps Engineer">
+  <meta property="og:description" content="DevOps Engineer based in Seoul, Korea. 10+ years in software engineering.">
+  <meta property="og:url" content="https://koriel.kr/">
+  <meta property="og:site_name" content="Jinsoo Heo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jinsoo Heo - DevOps Engineer">
+  <meta name="twitter:description" content="DevOps Engineer based in Seoul, Korea.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jinsoo Heo",
+    "alternateName": "허진수",
+    "jobTitle": "DevOps Engineer",
+    "url": "https://koriel.kr",
+    "sameAs": [
+      "https://github.com/devkoriel",
+      "https://www.linkedin.com/in/devkoriel",
+      "https://x.com/devkoriel",
+      "https://t.me/devkoriel",
+      "https://t.me/whoskoriel",
+      "https://blog.koriel.kr"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Seoul",
+      "addressCountry": "KR"
+    }
+  }
+  </script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root{
+      --bg:#f6f8fa;--term-bg:#fff;--fg:#1f2328;--muted:#656d76;
+      --green:#1a7f37;--blue:#0969da;--yellow:#9a6700;--red:#cf222e;--purple:#8250df;
+      --border:#d0d7de;--header-bg:#f6f8fa;
+      --shadow:0 8px 32px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+      --dot-red:#ff5f57;--dot-yellow:#febc2e;--dot-green:#28c840;
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0d1117;--term-bg:#161b22;--fg:#e6edf3;--muted:#8b949e;
+      --green:#3fb950;--blue:#58a6ff;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;
+      --border:#30363d;--header-bg:#1c2128;
+      --shadow:0 8px 32px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2);
+    }}
+    [data-theme=dark]{
+      --bg:#0d1117;--term-bg:#161b22;--fg:#e6edf3;--muted:#8b949e;
+      --green:#3fb950;--blue:#58a6ff;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;
+      --border:#30363d;--header-bg:#1c2128;
+      --shadow:0 8px 32px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2);
+    }
+    [data-theme=light]{
+      --bg:#f6f8fa;--term-bg:#fff;--fg:#1f2328;--muted:#656d76;
+      --green:#1a7f37;--blue:#0969da;--yellow:#9a6700;--red:#cf222e;--purple:#8250df;
+      --border:#d0d7de;--header-bg:#f6f8fa;
+      --shadow:0 8px 32px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+    }
+
+    body{
+      font-family:ui-monospace,"SF Mono","Cascadia Code","Segoe UI Mono",Menlo,Monaco,Consolas,monospace;
+      background:var(--bg);color:var(--fg);
+      min-height:100dvh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding:1rem;line-height:1.6;font-size:14px;
+      -webkit-font-smoothing:antialiased;
+      transition:background .3s,color .3s;
+    }
+
+    .terminal{
+      background:var(--term-bg);border:1px solid var(--border);
+      border-radius:12px;max-width:580px;width:100%;
+      overflow:hidden;box-shadow:var(--shadow);
+      transition:background .3s,border-color .3s,box-shadow .3s;
+    }
+
+    .terminal-header{
+      background:var(--header-bg);border-bottom:1px solid var(--border);
+      padding:.625rem .875rem;display:flex;align-items:center;gap:.5rem;
+      user-select:none;transition:background .3s,border-color .3s;
+    }
+    .dots{display:flex;gap:6px}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .dot-r{background:var(--dot-red)}
+    .dot-y{background:var(--dot-yellow)}
+    .dot-g{background:var(--dot-green)}
+    .terminal-title{flex:1;text-align:center;font-size:12px;color:var(--muted)}
+    .theme-btn{
+      background:none;border:none;color:var(--muted);cursor:pointer;
+      padding:2px 4px;font-size:14px;line-height:1;border-radius:4px;
+      transition:color .2s;
+    }
+    .theme-btn:hover{color:var(--fg)}
+    .theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+    .terminal-body{padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:1rem}
+
+    .cmd{display:flex;flex-direction:column;gap:.375rem}
+    .prompt{color:var(--green);font-weight:600}
+    .prompt::before{content:"$ "}
+    .out{padding-left:.75rem}
+    .dim{color:var(--muted)}
+
+    .whoami{display:flex;align-items:center;gap:1rem;padding-left:.75rem}
+    .avatar{
+      width:64px;height:64px;border-radius:50%;
+      border:2px solid var(--border);flex-shrink:0;
+      cursor:pointer;transition:transform .3s,border-color .3s;
+    }
+    .avatar:hover{transform:scale(1.08)}
+    .avatar.spin{animation:spin .6s ease-in-out}
+    @keyframes spin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(.9)}100%{transform:rotate(360deg) scale(1)}}
+
+    .info{display:flex;flex-direction:column;gap:.125rem}
+    .name{font-size:1.125rem;font-weight:700;letter-spacing:-.01em}
+    .name .dim{font-size:.8125rem;font-weight:400}
+    .role{color:var(--muted);font-size:.8125rem}
+
+    .tree{list-style:none;padding-left:.75rem;display:flex;flex-direction:column;gap:.5rem}
+    .tree li{display:flex;align-items:center;gap:.5rem;font-size:13px}
+    .branch{color:var(--muted);flex-shrink:0;width:24px}
+    .fname{color:var(--yellow);min-width:72px;flex-shrink:0}
+    .arrow{color:var(--muted)}
+    .tree a{color:var(--blue);text-decoration:none;transition:color .2s;display:inline-block;padding:2px 0}
+    .tree a:hover{color:var(--fg);text-decoration:underline}
+    .tree a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+    .channel{font-size:11px;color:var(--muted);font-weight:400}
+
+    .cursor-line .prompt::after{
+      content:"";display:inline-block;width:7px;height:1.1em;
+      background:var(--green);vertical-align:text-bottom;margin-left:2px;
+      animation:blink 1s step-end infinite;
+    }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+    .status-bar{
+      background:var(--header-bg);border-top:1px solid var(--border);
+      padding:.25rem .875rem;display:flex;justify-content:space-between;
+      font-size:11px;color:var(--muted);user-select:none;
+      transition:background .3s,border-color .3s;
+    }
+
+    .toast{
+      position:fixed;top:1rem;left:50%;
+      transform:translateX(-50%) translateY(-80px);
+      background:var(--green);color:#000;padding:.5rem 1rem;
+      border-radius:8px;font-weight:600;font-size:13px;
+      opacity:0;transition:transform .4s ease,opacity .4s ease;
+      z-index:10;pointer-events:none;white-space:nowrap;
+    }
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+    .confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:20;overflow:hidden}
+    .confetti i{
+      position:absolute;width:8px;height:8px;top:-10px;
+      animation:fall 3s linear forwards;
+    }
+    @keyframes fall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+    @media(prefers-reduced-motion:reduce){
+      .cursor-line .prompt::after{animation:none}
+      .avatar.spin{animation:none}
+      .confetti i{animation:none;display:none}
+      .toast{transition:none}
+    }
+
+    @media(max-width:480px){
+      body{padding:.5rem}
+      .terminal-body{padding:1rem .75rem}
+      .whoami{flex-direction:column;text-align:center}
+      .fname{min-width:56px}
+      .tree li{font-size:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main class="terminal">
+    <header class="terminal-header">
+      <div class="dots" aria-hidden="true">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <div class="terminal-title">jinsoo@koriel: ~</div>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <div class="terminal-body">
+      <div class="cmd">
+        <div class="prompt">whoami</div>
+        <div class="whoami">
+          <img
+            class="avatar"
+            id="avatar"
+            src="assets/avatar.webp"
+            alt="Jinsoo Heo"
+            width="64"
+            height="64"
+            fetchpriority="high"
+          >
+          <div class="info">
+            <div class="name">허진수 <span class="dim">(Jinsoo Heo)</span></div>
+            <div class="role">DevOps Engineer &middot; Seoul, Korea</div>
+          </div>
         </div>
-    </body>
+      </div>
+
+      <div class="cmd">
+        <div class="prompt">cat /etc/motd</div>
+        <div class="out dim">
+          10+ years in software engineering.<br>
+          Building infrastructure for DeFi protocols.<br>
+          Remote worker from Seoul.
+        </div>
+      </div>
+
+      <div class="cmd">
+        <div class="prompt">ls ~/links</div>
+        <nav aria-label="Links">
+          <ul class="tree">
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">blog</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://blog.koriel.kr" target="_blank" rel="noopener">blog.koriel.kr</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">resume</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="/resume/resume.pdf">resume.pdf</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">github</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://github.com/devkoriel" target="_blank" rel="noopener">devkoriel</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">linkedin</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://www.linkedin.com/in/devkoriel" target="_blank" rel="noopener">in/devkoriel</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">x</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://x.com/devkoriel" target="_blank" rel="noopener">@devkoriel</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">telegram</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://t.me/devkoriel" target="_blank" rel="noopener">@devkoriel</a>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">├──</span>
+              <span class="fname">channel</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="https://t.me/whoskoriel" target="_blank" rel="noopener">@whoskoriel</a>
+              <span class="channel">코리엘의 리모트 라이프</span>
+            </li>
+            <li>
+              <span class="branch" aria-hidden="true">└──</span>
+              <span class="fname">email</span>
+              <span class="arrow" aria-hidden="true">→</span>
+              <a href="mailto:dev.koriel@gmail.com">dev.koriel@gmail.com</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="cmd cursor-line">
+        <div class="prompt"></div>
+      </div>
+    </div>
+
+    <footer class="status-bar" aria-hidden="true">
+      <span>UTF-8 &middot; Asia/Seoul</span>
+      <span id="clock"></span>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      "use strict";
+
+      var cl=document.getElementById("clock");
+      function tick(){
+        cl.textContent=new Date().toLocaleTimeString("ko-KR",{hour12:false,timeZone:"Asia/Seoul"});
+      }
+      tick();
+      setInterval(tick,1000);
+
+      var toggle=document.getElementById("themeToggle");
+      var sun='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+      var moon='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+      function isDark(){
+        var t=document.documentElement.getAttribute("data-theme");
+        if(t)return t==="dark";
+        return window.matchMedia("(prefers-color-scheme:dark)").matches;
+      }
+      function setIcon(){toggle.innerHTML=isDark()?sun:moon;}
+      setIcon();
+
+      toggle.addEventListener("click",function(){
+        var next=isDark()?"light":"dark";
+        document.documentElement.setAttribute("data-theme",next);
+        setIcon();
+      });
+
+      var avatar=document.getElementById("avatar");
+      var clicks=0;
+      avatar.addEventListener("click",function(){
+        clicks++;
+        avatar.classList.remove("spin");
+        void avatar.offsetWidth;
+        avatar.classList.add("spin");
+        if(clicks===7){toast("Achievement Unlocked: Curious Clicker!");clicks=0;}
+        if(clicks===3){toast("Keep clicking...");}
+      });
+
+      var toastEl=document.getElementById("toast");
+      var toastTimer;
+      function toast(m){
+        toastEl.textContent=m;
+        toastEl.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer=setTimeout(function(){toastEl.classList.remove("show");},3000);
+      }
+
+      var seq=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+      var si=0;
+      document.addEventListener("keydown",function(e){
+        var k=e.key.length===1?e.key.toLowerCase():e.key;
+        si=k===seq[si]?si+1:k===seq[0]?1:0;
+        if(si===seq.length){
+          si=0;
+          confetti();
+          toast("Konami Code Activated!");
+        }
+      });
+
+      function confetti(){
+        if(window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
+        var c=document.createElement("div");
+        c.className="confetti";
+        var colors=["#3fb950","#58a6ff","#d29922","#f85149","#bc8cff","#ff7b72"];
+        for(var i=0;i<40;i++){
+          var p=document.createElement("i");
+          p.style.left=Math.random()*100+"%";
+          p.style.background=colors[i%colors.length];
+          p.style.animationDelay=Math.random()*2+"s";
+          p.style.borderRadius=Math.random()>.5?"50%":"2px";
+          c.appendChild(p);
+        }
+        document.body.appendChild(c);
+        setTimeout(function(){c.remove();},5000);
+      }
+
+      var mTouch=[];
+      document.addEventListener("touchstart",function(e){
+        if(e.touches.length!==1)return;
+        mTouch.push({x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()});
+        if(mTouch.length>20)mTouch.shift();
+      },{passive:true});
+      document.addEventListener("touchend",function(){
+        if(mTouch.length>=10){
+          var recent=mTouch.slice(-10);
+          var dt=recent[9].t-recent[0].t;
+          if(dt<3000){confetti();toast("Tap frenzy!");}
+        }
+      },{passive:true});
+    })();
+  </script>
+</body>
 </html>
