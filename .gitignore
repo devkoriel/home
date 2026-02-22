@@ -1,0 +1,4 @@
+node_modules/
+resume.html
+.lighthouseci/
+lighthouse-summary.md

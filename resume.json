@@ -1,0 +1,230 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Jinsoo Heo",
+    "label": "DevOps Engineer",
+    "image": "https://koriel.kr/assets/avatar.webp",
+    "email": "dev.koriel@gmail.com",
+    "phone": "+821089759546",
+    "url": "https://koriel.kr",
+    "summary": "DevOps Engineer with 8+ years of experience building and operating production infrastructure at scale. Specialized in Kubernetes, GitOps, observability, network security, and eBPF. Currently building Web3 oracle infrastructure for DeFi protocols. Previously secured gaming infrastructure handling 10M+ concurrent users at PUBG and operated marketplace platform infrastructure at Karrot.",
+    "location": {
+      "city": "Seoul",
+      "countryCode": "KR"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "devkoriel",
+        "url": "https://github.com/devkoriel"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "devkoriel",
+        "url": "https://www.linkedin.com/in/devkoriel"
+      },
+      {
+        "network": "X",
+        "username": "devkoriel",
+        "url": "https://x.com/devkoriel"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Chronicle Labs",
+      "position": "DevOps Engineer",
+      "url": "https://chroniclelabs.org",
+      "startDate": "2026-01-01",
+      "summary": "Web3 oracle infrastructure for DeFi protocols.",
+      "highlights": [
+        "Build and operate Kubernetes-based oracle infrastructure on AWS EKS, managing the full lifecycle of oracle services through an ArgoCD GitOps app-of-apps pattern",
+        "Design and maintain the observability platform (Grafana, Mimir, Loki, Alloy) with cost-efficient metrics ingestion and actionable alerting for oracle liveness and data freshness",
+        "Drive infrastructure-as-code practices with Helm charts, Terraform, and IPFS-based immutable configuration management",
+        "Lead incident response and on-call for Sev0/Sev1 oracle incidents where downtime directly impacts DeFi protocol solvency"
+      ]
+    },
+    {
+      "name": "Dunamu (Upbit)",
+      "position": "DevOps Engineer",
+      "url": "https://www.dunamu.com",
+      "startDate": "2023-10-01",
+      "endDate": "2025-10-01",
+      "summary": "South Korea's largest cryptocurrency exchange.",
+      "highlights": [
+        "Kubernetes on AWS (EKS and kOps) maintenance and deployment",
+        "End-to-end network security using Istio service mesh",
+        "Upbit OpenAPI Gateway (Kong) maintenance and plugin development with Lua",
+        "AWS cloud network architecture and implementation with Terraform",
+        "SLA/SLO/SLI dashboard development with Datadog, Grafana, and Terraform",
+        "Monitoring and observability enhancement powered by Linux eBPF",
+        "Internal DevOps and SRE tooling development with Go and Python"
+      ]
+    },
+    {
+      "name": "Karrot (Danggeun Market)",
+      "position": "Site Reliability Engineer",
+      "url": "https://www.daangn.com",
+      "startDate": "2022-06-01",
+      "endDate": "2023-10-01",
+      "summary": "South Korea's leading local marketplace platform.",
+      "highlights": [
+        "SRE Cluster team — securing stability of network and Kubernetes clusters",
+        "HAProxy maintenance and bot/abuser detection",
+        "Log and metrics delivery pipeline with Grafana dashboards",
+        "Istio service mesh maintenance and Kubernetes network optimization",
+        "FinOps and infrastructure cost automation"
+      ]
+    },
+    {
+      "name": "PUBG Corporation",
+      "position": "Lead of Network Security Part",
+      "url": "https://www.pubg.com",
+      "startDate": "2021-12-01",
+      "endDate": "2022-06-01",
+      "summary": "PUBG: NEW STATE — defending game infrastructure from attacks.",
+      "highlights": [
+        "Led network security for PUBG: NEW STATE infrastructure defense"
+      ]
+    },
+    {
+      "name": "PUBG Corporation",
+      "position": "DevSecOps Engineer",
+      "url": "https://www.pubg.com",
+      "startDate": "2020-10-01",
+      "endDate": "2021-12-01",
+      "summary": "PUBG: NEW STATE — infrastructure security and operations.",
+      "highlights": [
+        "eBPF programming (XDP ingress + TC egress) to protect infrastructure from DDoS attacks",
+        "Load testing and tuning network infrastructure for 10,000,000+ concurrent users",
+        "Kubernetes HPA with Prometheus Adapter for custom-metrics-based autoscaling",
+        "Setup microservices environment using AWS EKS, Kubernetes, Terraform, and Helm",
+        "Istio service mesh and logging with Prometheus and Fluent Bit",
+        "GitOps CI/CD pipeline with Jenkins (CI) and ArgoCD (CD)"
+      ]
+    },
+    {
+      "name": "Angelswing",
+      "position": "DevOps Engineer",
+      "url": "https://angelswing.io",
+      "startDate": "2019-11-01",
+      "endDate": "2020-10-01",
+      "summary": "Drone mapping and digital twin platform.",
+      "highlights": [
+        "Dockerization of Ruby on Rails, Node.js, Python apps and deployment to AWS ECS (Fargate/EC2)",
+        "Zero-downtime deployment strategy (Blue-green and Rolling update)",
+        "Security: AWS WAF, ELB firewall policies, CIS Benchmark",
+        "ELK stack and Elastic APM for observability",
+        "AWS VPC architecture with strict public/private subnet separation",
+        "MSK (Managed Kafka) for microservice communication"
+      ]
+    },
+    {
+      "name": "LUXROBO",
+      "position": "DevOps Technical Lead",
+      "startDate": "2018-12-01",
+      "endDate": "2019-11-01",
+      "summary": "Educational robotics company (MODI modular robot).",
+      "highlights": [
+        "Infrastructure monitoring with Docker and NetData",
+        "Software architecture design and code review management via GitLab MR + Jenkins",
+        "CI/CD pipeline for Linux, macOS, Windows, Android, iOS, and Python apps using Jenkins",
+        "Application download server using AWS Lambda and API Gateway",
+        "CMake migration of C++ projects — 10x build time and binary size reduction"
+      ]
+    },
+    {
+      "name": "LUXROBO",
+      "position": "SW Dev. Team Manager",
+      "startDate": "2017-07-01",
+      "endDate": "2018-12-01",
+      "highlights": [
+        "Managed software development team — Electron and C++ application design",
+        "Operated 3 Kanban projects",
+        "Refactored and bug-fixed C++ daemon process, deployed LTS release"
+      ]
+    },
+    {
+      "name": "LUXROBO",
+      "position": "Software Engineer",
+      "startDate": "2017-04-01",
+      "endDate": "2017-07-01",
+      "highlights": [
+        "Built JIRA and Confluence on in-house servers",
+        "Developed 'MODI Studio Daemon' C++ application with C++11 and Boost",
+        "Developed 'MODI Manager' iOS application with Swift 3 and BLE"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Yonsei University",
+      "area": "Physics",
+      "studyType": "Bachelor's degree",
+      "startDate": "2013-03-01",
+      "endDate": "2019-08-01"
+    },
+    {
+      "institution": "Korea Digital Media High School",
+      "area": "Hacking Defense",
+      "startDate": "2010-03-01",
+      "endDate": "2013-02-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Container Orchestration",
+      "keywords": ["Kubernetes", "EKS", "kOps", "Helm", "ArgoCD"]
+    },
+    {
+      "name": "Infrastructure as Code",
+      "keywords": ["Terraform", "Helm Charts", "IPFS Config Management"]
+    },
+    {
+      "name": "Observability",
+      "keywords": ["Grafana", "Mimir", "Loki", "Alloy", "Datadog", "Prometheus", "ELK"]
+    },
+    {
+      "name": "Networking & Security",
+      "keywords": ["Istio", "eBPF/XDP", "HAProxy", "Kong", "AWS WAF"]
+    },
+    {
+      "name": "CI/CD",
+      "keywords": ["GitHub Actions", "Jenkins", "ArgoCD", "GitOps"]
+    },
+    {
+      "name": "Cloud",
+      "keywords": ["AWS (EKS, ECS, Lambda, VPC, MSK)", "Docker"]
+    },
+    {
+      "name": "Languages",
+      "keywords": ["Go", "Python", "Lua", "C++", "Bash", "HCL"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native or Bilingual"
+    },
+    {
+      "language": "Korean",
+      "fluency": "Native or Bilingual"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Korea Robot Aircraft Competition"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Microsoft Software Magazine Issue 394 — Cloud or Dare",
+      "summary": "마이크로소프트웨어 394호 클라우드 혹은 도전(CLOUD or DARE)"
+    }
+  ],
+  "meta": {
+    "canonical": "https://koriel.kr/resume/resume.pdf",
+    "version": "v1.0.0",
+    "lastModified": "2026-02-22"
+  }
+}

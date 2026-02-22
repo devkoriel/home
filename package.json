@@ -1,0 +1,26 @@
+{
+  "name": "koriel-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:resume": "node scripts/build-resume.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devkoriel/home.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/devkoriel/home/issues"
+  },
+  "homepage": "https://github.com/devkoriel/home#readme",
+  "dependencies": {
+    "jsonresume-theme-elegant": "^1.16.1",
+    "puppeteer": "^24.37.5",
+    "resumed": "^6.1.0"
+  }
+}
