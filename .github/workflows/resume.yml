@@ -4,8 +4,10 @@ on:
   push:
     paths:
       - 'resume.json'
+      - 'scripts/build-resume.mjs'
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
