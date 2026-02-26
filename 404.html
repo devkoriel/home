@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Not Found | Jinsoo Heo</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://koriel.kr/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#f6f8fa;--term-bg:#fff;--fg:#1f2328;--muted:#656d76;
+      --green:#1a7f37;--blue:#0969da;--red:#cf222e;
+      --border:#d0d7de;--header-bg:#f6f8fa;
+      --shadow:0 8px 32px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+      --dot-red:#ff5f57;--dot-yellow:#febc2e;--dot-green:#28c840;
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0d1117;--term-bg:#161b22;--fg:#e6edf3;--muted:#8b949e;
+      --green:#3fb950;--blue:#58a6ff;--red:#f85149;
+      --border:#30363d;--header-bg:#1c2128;
+      --shadow:0 8px 32px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2);
+    }}
+    body{
+      font-family:ui-monospace,"SF Mono","Cascadia Code","Segoe UI Mono",Menlo,Monaco,Consolas,monospace;
+      background:var(--bg);color:var(--fg);
+      min-height:100dvh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding:1rem;line-height:1.6;font-size:14px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .terminal{
+      background:var(--term-bg);border:1px solid var(--border);
+      border-radius:12px;max-width:480px;width:100%;
+      overflow:hidden;box-shadow:var(--shadow);
+    }
+    .terminal-header{
+      background:var(--header-bg);border-bottom:1px solid var(--border);
+      padding:.625rem .875rem;display:flex;align-items:center;gap:.5rem;
+      user-select:none;
+    }
+    .dots{display:flex;gap:6px}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .dot-r{background:var(--dot-red)}
+    .dot-y{background:var(--dot-yellow)}
+    .dot-g{background:var(--dot-green)}
+    .terminal-title{flex:1;text-align:center;font-size:12px;color:var(--muted)}
+    .terminal-body{padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:1rem}
+    .prompt{color:var(--green);font-weight:600}
+    .prompt::before{content:"$ "}
+    .out{padding-left:.75rem}
+    .dim{color:var(--muted)}
+    .err{color:var(--red)}
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .cursor-line .prompt::after{
+      content:"";display:inline-block;width:7px;height:1.1em;
+      background:var(--green);vertical-align:text-bottom;margin-left:2px;
+      animation:blink 1s step-end infinite;
+    }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @media(prefers-reduced-motion:reduce){.cursor-line .prompt::after{animation:none}}
+  </style>
+</head>
+<body>
+  <main class="terminal">
+    <header class="terminal-header">
+      <div class="dots" aria-hidden="true">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <div class="terminal-title">jinsoo@koriel: ~</div>
+    </header>
+    <div class="terminal-body">
+      <div>
+        <div class="prompt">cat /var/log/error</div>
+        <div class="out err">Error 404: page not found</div>
+      </div>
+      <div>
+        <div class="prompt">echo $?</div>
+        <div class="out dim">The page you're looking for doesn't exist or has been moved.</div>
+      </div>
+      <div>
+        <div class="prompt">cd ~</div>
+        <div class="out"><a href="/">Back to home</a></div>
+      </div>
+      <div class="cursor-line">
+        <div class="prompt"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
