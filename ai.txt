@@ -1,0 +1,27 @@
+---
+updated: 2026-02-27
+---
+
+# Jinsoo Heo — Personal Homepage
+
+Personal landing page for Jinsoo Heo (허진수), a DevOps Engineer based in Seoul, Korea with 8+ years in software engineering, currently building infrastructure for DeFi protocols at Chronicle Labs.
+
+## What This Site Is
+
+A single-page terminal-themed personal homepage linking to my blog, resume, and social profiles.
+
+## Key Resources
+
+- Blog: https://blog.koriel.kr — Technical writing on DevOps, Kubernetes, Web3, and infrastructure
+- Resume: https://koriel.kr/resume/resume.pdf
+- GitHub: https://github.com/devkoriel
+- LinkedIn: https://www.linkedin.com/in/devkoriel
+- LLM context: https://koriel.kr/llms.txt
+
+## What This Site Is Not
+
+This site does not contain blog posts, documentation, or API references. For technical content, refer to the blog.
+
+## Related Contexts
+
+[Blog AI context](https://blog.koriel.kr/ai.txt)

@@ -1,0 +1,14 @@
+# Jinsoo Heo
+
+> Personal homepage of Jinsoo Heo (허진수), a DevOps Engineer based in Seoul, Korea. 8+ years in software engineering, building infrastructure for DeFi protocols.
+
+## Links
+
+- [Homepage](https://koriel.kr/): Terminal-themed personal landing page
+- [Blog](https://blog.koriel.kr): Technical blog about DevOps, Kubernetes, Web3, and infrastructure engineering
+- [Resume](https://koriel.kr/resume/resume.pdf): PDF resume
+- [GitHub](https://github.com/devkoriel): Open source projects and contributions
+- [LinkedIn](https://www.linkedin.com/in/devkoriel): Professional profile
+- [X](https://x.com/devkoriel): Social media
+- [Telegram](https://t.me/devkoriel): Direct contact
+- [Telegram Channel](https://t.me/whoskoriel): 코리엘의 리모트 라이프
