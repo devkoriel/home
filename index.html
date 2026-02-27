@@ -50,6 +50,9 @@
   }
   </script>
 
+  <script>
+    (function(){var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);})();
+  </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -334,6 +337,7 @@
       toggle.addEventListener("click",function(){
         var next=isDark()?"light":"dark";
         document.documentElement.setAttribute("data-theme",next);
+        localStorage.setItem("theme",next);
         setIcon();
       });
 
