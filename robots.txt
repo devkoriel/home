@@ -1,17 +1,6 @@
 User-agent: *
 Allow: /
 
-# AI Search/Citation bots - allowed
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# AI Training bots - disallowed
 User-agent: GPTBot
 Disallow: /
 

@@ -7,21 +7,40 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://koriel.kr/">
   <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark light">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
     :root{
       --bg:#f6f8fa;--term-bg:#fff;--fg:#1f2328;--muted:#656d76;
-      --green:#1a7f37;--blue:#0969da;--red:#cf222e;
+      --green:#1a7f37;--blue:#0969da;--yellow:#9a6700;--red:#cf222e;--purple:#8250df;
       --border:#d0d7de;--header-bg:#f6f8fa;
       --shadow:0 8px 32px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
       --dot-red:#ff5f57;--dot-yellow:#febc2e;--dot-green:#28c840;
     }
     @media(prefers-color-scheme:dark){:root{
       --bg:#0d1117;--term-bg:#161b22;--fg:#e6edf3;--muted:#8b949e;
-      --green:#3fb950;--blue:#58a6ff;--red:#f85149;
+      --green:#3fb950;--blue:#58a6ff;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;
       --border:#30363d;--header-bg:#1c2128;
       --shadow:0 8px 32px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2);
     }}
+    [data-theme=dark]{
+      --bg:#0d1117;--term-bg:#161b22;--fg:#e6edf3;--muted:#8b949e;
+      --green:#3fb950;--blue:#58a6ff;--yellow:#d29922;--red:#f85149;--purple:#bc8cff;
+      --border:#30363d;--header-bg:#1c2128;
+      --shadow:0 8px 32px rgba(0,0,0,.4),0 2px 8px rgba(0,0,0,.2);
+    }
+    [data-theme=light]{
+      --bg:#f6f8fa;--term-bg:#fff;--fg:#1f2328;--muted:#656d76;
+      --green:#1a7f37;--blue:#0969da;--yellow:#9a6700;--red:#cf222e;--purple:#8250df;
+      --border:#d0d7de;--header-bg:#f6f8fa;
+      --shadow:0 8px 32px rgba(0,0,0,.08),0 2px 8px rgba(0,0,0,.04);
+    }
+
     body{
       font-family:ui-monospace,"SF Mono","Cascadia Code","Segoe UI Mono",Menlo,Monaco,Consolas,monospace;
       background:var(--bg);color:var(--fg);
@@ -29,16 +48,20 @@
       align-items:center;justify-content:center;
       padding:1rem;line-height:1.6;font-size:14px;
       -webkit-font-smoothing:antialiased;
+      transition:background .3s,color .3s;
     }
+
     .terminal{
       background:var(--term-bg);border:1px solid var(--border);
-      border-radius:12px;max-width:480px;width:100%;
+      border-radius:12px;max-width:580px;width:100%;
       overflow:hidden;box-shadow:var(--shadow);
+      transition:background .3s,border-color .3s,box-shadow .3s;
     }
+
     .terminal-header{
       background:var(--header-bg);border-bottom:1px solid var(--border);
       padding:.625rem .875rem;display:flex;align-items:center;gap:.5rem;
-      user-select:none;
+      user-select:none;transition:background .3s,border-color .3s;
     }
     .dots{display:flex;gap:6px}
     .dot{width:12px;height:12px;border-radius:50%}
@@ -46,21 +69,48 @@
     .dot-y{background:var(--dot-yellow)}
     .dot-g{background:var(--dot-green)}
     .terminal-title{flex:1;text-align:center;font-size:12px;color:var(--muted)}
+    .theme-btn{
+      background:none;border:none;color:var(--muted);cursor:pointer;
+      padding:2px 4px;font-size:14px;line-height:1;border-radius:4px;
+      transition:color .2s;
+    }
+    .theme-btn:hover{color:var(--fg)}
+    .theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
     .terminal-body{padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:1rem}
+
+    .cmd{display:flex;flex-direction:column;gap:.375rem}
     .prompt{color:var(--green);font-weight:600}
     .prompt::before{content:"$ "}
     .out{padding-left:.75rem}
     .dim{color:var(--muted)}
     .err{color:var(--red)}
-    a{color:var(--blue);text-decoration:none}
-    a:hover{text-decoration:underline}
+    .out a{color:var(--blue);text-decoration:none;transition:color .2s;display:inline-block;padding:2px 0}
+    .out a:hover{color:var(--fg);text-decoration:underline}
+    .out a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
+
     .cursor-line .prompt::after{
       content:"";display:inline-block;width:7px;height:1.1em;
       background:var(--green);vertical-align:text-bottom;margin-left:2px;
       animation:blink 1s step-end infinite;
     }
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-    @media(prefers-reduced-motion:reduce){.cursor-line .prompt::after{animation:none}}
+
+    .status-bar{
+      background:var(--header-bg);border-top:1px solid var(--border);
+      padding:.25rem .875rem;display:flex;justify-content:space-between;
+      font-size:11px;color:var(--muted);user-select:none;
+      transition:background .3s,border-color .3s;
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .cursor-line .prompt::after{animation:none}
+    }
+
+    @media(max-width:480px){
+      body{padding:.5rem}
+      .terminal-body{padding:1rem .75rem}
+    }
   </style>
 </head>
 <body>
@@ -72,24 +122,67 @@
         <span class="dot dot-g"></span>
       </div>
       <div class="terminal-title">jinsoo@koriel: ~</div>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </header>
+
     <div class="terminal-body">
-      <div>
+      <div class="cmd">
         <div class="prompt">cat /var/log/error</div>
         <div class="out err">Error 404: page not found</div>
       </div>
-      <div>
+
+      <div class="cmd">
         <div class="prompt">echo $?</div>
         <div class="out dim">The page you're looking for doesn't exist or has been moved.</div>
       </div>
-      <div>
+
+      <div class="cmd">
         <div class="prompt">cd ~</div>
         <div class="out"><a href="/">Back to home</a></div>
       </div>
-      <div class="cursor-line">
+
+      <div class="cmd cursor-line">
         <div class="prompt"></div>
       </div>
     </div>
+
+    <footer class="status-bar" aria-hidden="true">
+      <span>UTF-8 &middot; Asia/Seoul</span>
+      <span id="clock"></span>
+    </footer>
   </main>
+
+  <script>
+    (function(){
+      "use strict";
+
+      var cl=document.getElementById("clock");
+      function tick(){
+        cl.textContent=new Date().toLocaleTimeString("en-US",{hour12:false,timeZone:"Asia/Seoul"});
+      }
+      tick();
+      setInterval(tick,1000);
+
+      var toggle=document.getElementById("themeToggle");
+      var sun='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+      var moon='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+      function isDark(){
+        var t=document.documentElement.getAttribute("data-theme");
+        if(t)return t==="dark";
+        return window.matchMedia("(prefers-color-scheme:dark)").matches;
+      }
+      function setIcon(){toggle.innerHTML=isDark()?sun:moon;}
+      setIcon();
+
+      toggle.addEventListener("click",function(){
+        var next=isDark()?"light":"dark";
+        document.documentElement.setAttribute("data-theme",next);
+        setIcon();
+      });
+    })();
+  </script>
 </body>
 </html>
