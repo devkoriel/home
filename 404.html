@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 - Not Found | Jinsoo Heo</title>
+  <meta name="description" content="Page not found on koriel.kr. Return to Jinsoo Heo's homepage.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://koriel.kr/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="prefetch" href="/llms.txt">
-  <link rel="prefetch" href="/ai.txt">
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
   <meta name="color-scheme" content="dark light">
 
-  <script src="/theme-init.js"></script>
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      }catch(_){}
+    })();
+  </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -74,7 +80,9 @@
     .terminal-title{flex:1;text-align:center;font-size:12px;color:var(--muted)}
     .theme-btn{
       background:none;border:none;color:var(--muted);cursor:pointer;
-      padding:2px 4px;font-size:14px;line-height:1;border-radius:4px;
+      min-width:32px;min-height:32px;padding:2px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:14px;line-height:1;border-radius:4px;
       transition:color .2s;
     }
     .theme-btn:hover{color:var(--fg)}
@@ -125,7 +133,7 @@
         <span class="dot dot-g"></span>
       </div>
       <div class="terminal-title">jinsoo@koriel: ~</div>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </header>
@@ -157,7 +165,7 @@
     </footer>
   </main>
 
-  <script src="/clock.js"></script>
-  <script src="/theme.js"></script>
+  <script defer src="/clock.js"></script>
+  <script defer src="/theme.js"></script>
 </body>
 </html>
