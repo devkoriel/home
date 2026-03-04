@@ -10,8 +10,7 @@
   <link rel="canonical" href="https://koriel.kr/">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="prefetch" href="/llms.txt">
-  <link rel="prefetch" href="/ai.txt">
+  <link rel="preload" href="/assets/avatar.webp" as="image" type="image/webp" fetchpriority="high">
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
   <meta name="color-scheme" content="dark light">
@@ -23,10 +22,15 @@
   <meta property="og:description" content="DevOps Engineer based in Seoul, Korea. 8+ years in software engineering.">
   <meta property="og:url" content="https://koriel.kr/">
   <meta property="og:site_name" content="Jinsoo Heo">
+  <meta property="og:image" content="https://koriel.kr/assets/avatar.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="192">
+  <meta property="og:image:height" content="192">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Jinsoo Heo - DevOps Engineer">
   <meta name="twitter:description" content="DevOps Engineer based in Seoul, Korea.">
+  <meta name="twitter:image" content="https://koriel.kr/assets/avatar.webp">
 
   <script type="application/ld+json">
   {
@@ -52,7 +56,14 @@
   }
   </script>
 
-  <script src="/theme-init.js"></script>
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      }catch(_){}
+    })();
+  </script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -112,7 +123,9 @@
     .terminal-title{flex:1;text-align:center;font-size:12px;color:var(--muted)}
     .theme-btn{
       background:none;border:none;color:var(--muted);cursor:pointer;
-      padding:2px 4px;font-size:14px;line-height:1;border-radius:4px;
+      min-width:32px;min-height:32px;padding:2px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:14px;line-height:1;border-radius:4px;
       transition:color .2s;
     }
     .theme-btn:hover{color:var(--fg)}
@@ -142,14 +155,14 @@
     .role{color:var(--muted);font-size:.8125rem}
 
     .tree{list-style:none;padding-left:.75rem;display:flex;flex-direction:column;gap:.5rem}
-    .tree li{display:flex;align-items:center;gap:.5rem;font-size:13px}
+    .tree li{display:flex;align-items:center;gap:.5rem;font-size:13px;min-height:32px}
     .branch{color:var(--muted);flex-shrink:0;width:24px}
     .fname{color:var(--yellow);min-width:72px;flex-shrink:0}
     .arrow{color:var(--muted)}
-    .tree a{color:var(--blue);text-decoration:none;transition:color .2s;display:inline-block;padding:2px 0}
+    .tree a{color:var(--blue);text-decoration:none;transition:color .2s;display:inline-block;padding:6px 0}
     .tree a:hover{color:var(--fg);text-decoration:underline}
     .tree a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:2px}
-    .channel{font-size:11px;color:var(--muted);font-weight:400}
+    .channel{font-size:12px;color:var(--muted);font-weight:400}
 
     .cursor-line .prompt::after{
       content:"";display:inline-block;width:7px;height:1.1em;
@@ -161,7 +174,7 @@
     .status-bar{
       background:var(--header-bg);border-top:1px solid var(--border);
       padding:.25rem .875rem;display:flex;justify-content:space-between;
-      font-size:11px;color:var(--muted);user-select:none;
+      font-size:12px;color:var(--muted);user-select:none;
       transition:background .3s,border-color .3s;
     }
 
@@ -194,12 +207,13 @@
       .terminal-body{padding:1rem .75rem}
       .whoami{flex-direction:column;text-align:center}
       .fname{min-width:56px}
-      .tree li{font-size:12px}
+      .tree li{font-size:12px;min-height:44px}
     }
   </style>
 </head>
 <body>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Jinsoo Heo - DevOps Engineer</h1>
 
   <main class="terminal">
     <header class="terminal-header">
@@ -209,7 +223,7 @@
         <span class="dot dot-g"></span>
       </div>
       <div class="terminal-title">jinsoo@koriel: ~</div>
-      <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </header>
@@ -226,6 +240,8 @@
             width="64"
             height="64"
             fetchpriority="high"
+            decoding="async"
+            loading="eager"
           >
           <div class="info">
             <div class="name">Jinsoo Heo <span class="dim">(허진수)</span></div>
@@ -251,7 +267,7 @@
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">blog</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://blog.koriel.kr" target="_blank" rel="noopener">blog.koriel.kr</a>
+              <a href="https://blog.koriel.kr" target="_blank" rel="noopener noreferrer">blog.koriel.kr</a>
             </li>
             <li>
               <span class="branch" aria-hidden="true">├──</span>
@@ -263,31 +279,31 @@
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">github</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://github.com/devkoriel" target="_blank" rel="noopener">devkoriel</a>
+              <a href="https://github.com/devkoriel" target="_blank" rel="noopener noreferrer">devkoriel</a>
             </li>
             <li>
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">linkedin</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://www.linkedin.com/in/devkoriel" target="_blank" rel="noopener">in/devkoriel</a>
+              <a href="https://www.linkedin.com/in/devkoriel" target="_blank" rel="noopener noreferrer">in/devkoriel</a>
             </li>
             <li>
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">x</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://x.com/devkoriel" target="_blank" rel="noopener">@devkoriel</a>
+              <a href="https://x.com/devkoriel" target="_blank" rel="noopener noreferrer">@devkoriel</a>
             </li>
             <li>
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">telegram</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://t.me/devkoriel" target="_blank" rel="noopener">@devkoriel</a>
+              <a href="https://t.me/devkoriel" target="_blank" rel="noopener noreferrer">@devkoriel</a>
             </li>
             <li>
               <span class="branch" aria-hidden="true">├──</span>
               <span class="fname">channel</span>
               <span class="arrow" aria-hidden="true">→</span>
-              <a href="https://t.me/whoskoriel" target="_blank" rel="noopener">@whoskoriel</a>
+              <a href="https://t.me/whoskoriel" target="_blank" rel="noopener noreferrer">@whoskoriel</a>
               <span class="channel">코리엘의 리모트 라이프</span>
             </li>
             <li>
@@ -311,75 +327,8 @@
     </footer>
   </main>
 
-  <script src="/clock.js"></script>
-  <script src="/theme.js"></script>
-  <script>
-    (function(){
-      "use strict";
-
-      var avatar=document.getElementById("avatar");
-      var clicks=0;
-      avatar.addEventListener("click",function(){
-        clicks++;
-        avatar.classList.remove("spin");
-        void avatar.offsetWidth;
-        avatar.classList.add("spin");
-        if(clicks===7){toast("Achievement Unlocked: Curious Clicker!");clicks=0;}
-        if(clicks===3){toast("Keep clicking...");}
-      });
-
-      var toastEl=document.getElementById("toast");
-      var toastTimer;
-      function toast(m){
-        toastEl.textContent=m;
-        toastEl.classList.add("show");
-        clearTimeout(toastTimer);
-        toastTimer=setTimeout(function(){toastEl.classList.remove("show");},3000);
-      }
-
-      var seq=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
-      var si=0;
-      document.addEventListener("keydown",function(e){
-        var k=e.key.length===1?e.key.toLowerCase():e.key;
-        si=k===seq[si]?si+1:k===seq[0]?1:0;
-        if(si===seq.length){
-          si=0;
-          confetti();
-          toast("Konami Code Activated!");
-        }
-      });
-
-      function confetti(){
-        if(window.matchMedia("(prefers-reduced-motion:reduce)").matches)return;
-        var c=document.createElement("div");
-        c.className="confetti";
-        var colors=["#3fb950","#58a6ff","#d29922","#f85149","#bc8cff","#ff7b72"];
-        for(var i=0;i<40;i++){
-          var p=document.createElement("i");
-          p.style.left=Math.random()*100+"%";
-          p.style.background=colors[i%colors.length];
-          p.style.animationDelay=Math.random()*2+"s";
-          p.style.borderRadius=Math.random()>.5?"50%":"2px";
-          c.appendChild(p);
-        }
-        document.body.appendChild(c);
-        setTimeout(function(){c.remove();},5000);
-      }
-
-      var mTouch=[];
-      document.addEventListener("touchstart",function(e){
-        if(e.touches.length!==1)return;
-        mTouch.push({x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()});
-        if(mTouch.length>20)mTouch.shift();
-      },{passive:true});
-      document.addEventListener("touchend",function(){
-        if(mTouch.length>=10){
-          var recent=mTouch.slice(-10);
-          var dt=recent[9].t-recent[0].t;
-          if(dt<3000){confetti();toast("Tap frenzy!");}
-        }
-      },{passive:true});
-    })();
-  </script>
+  <script defer src="/clock.js"></script>
+  <script defer src="/theme.js"></script>
+  <script defer src="/main.js"></script>
 </body>
 </html>
