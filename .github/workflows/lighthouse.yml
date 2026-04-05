@@ -42,7 +42,7 @@ jobs:
 
       - name: Run Lighthouse (${{ matrix.preset }})
         run: |
-          URLS="--url=http://localhost:4173/"
+          URLS="--url=http://localhost:4173/ --url=http://localhost:4173/404.html"
 
           PRESET_FLAG=""
           if [[ "${{ matrix.preset }}" == "desktop" ]]; then

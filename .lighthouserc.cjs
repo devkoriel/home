@@ -15,14 +15,30 @@ module.exports = {
       },
     },
     assert: {
-      assertions: {
-        "categories:performance": ["error", { minScore: 0.95, aggregationMethod: "median-run" }],
-        "categories:accessibility": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
-        "categories:best-practices": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
-        "categories:seo": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
-        "bf-cache": "off",
-        "csp-xss": "off",
-      },
+      assertMatrix: [
+        {
+          matchingUrlPattern: ".*(?<!404\\.html)$",
+          assertions: {
+            "categories:performance": ["error", { minScore: 0.95, aggregationMethod: "median-run" }],
+            "categories:accessibility": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
+            "categories:best-practices": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
+            "categories:seo": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
+            "bf-cache": "off",
+            "csp-xss": "off",
+          },
+        },
+        {
+          matchingUrlPattern: ".*404\\.html$",
+          assertions: {
+            "categories:performance": ["error", { minScore: 0.95, aggregationMethod: "median-run" }],
+            "categories:accessibility": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
+            "categories:best-practices": ["error", { minScore: 1.0, aggregationMethod: "median-run" }],
+            "categories:seo": "off",
+            "bf-cache": "off",
+            "csp-xss": "off",
+          },
+        },
+      ],
     },
     upload: {
       target: "filesystem",
