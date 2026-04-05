@@ -70,6 +70,7 @@ jobs:
           path: |
             .lighthouseci/
             lighthouse-summary.md
+          include-hidden-files: true
           retention-days: 14
 
   badges:
