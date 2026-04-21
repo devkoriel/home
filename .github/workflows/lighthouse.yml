@@ -160,7 +160,7 @@ jobs:
           } > pr-comment.md
 
       - name: Post PR comment
-        uses: marocchino/sticky-pull-request-comment@v2
+        uses: marocchino/sticky-pull-request-comment@v3.0.4
         with:
           path: pr-comment.md
           header: lighthouse-ci
